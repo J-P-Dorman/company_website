@@ -1,17 +1,20 @@
-import { useState } from "react";
 import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "./pages/Home/Home";
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
 
 const App = () => {
-  const [count, setCount] = useState(0);
+
 
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
+    </Provider>
   );
 };
 

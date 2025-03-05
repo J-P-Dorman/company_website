@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.width-wrapper {
+  width: 100%;
+  max-width: 1200px;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.small-link {
+    color: #ffffff;
+    font-size: 0.8em;
+    text-decoration: none;
+  }
+}
+
+hr {
+  width: 75%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 0;
+}

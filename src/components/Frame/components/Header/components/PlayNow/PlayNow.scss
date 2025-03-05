@@ -1,0 +1,13 @@
+#play-now {
+  height: 100%;
+
+  button {
+    background: #ffffff;
+    color: #623e9b;
+    font-size: 1.2em;
+
+    &:hover {
+      background: #dddddd;
+    }
+  }
+}

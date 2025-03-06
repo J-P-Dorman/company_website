@@ -1,13 +1,10 @@
-import { useState } from "react";
 import companyLogo from "../../../../assets/logo.svg";
-import Account from "./components/Account/Account";
+import UserButton from "./components/UserButton/UserButton";
 import PlayNow from "./components/PlayNow/PlayNow";
 import "./Header.scss";
 import HeaderButton from "./components/HeaderButton/HeaderButton";
 
 const Header = () => {
-  const [count, setCount] = useState(0);
-
   return (
     <div id="header">
       <div id="header-container">
@@ -18,8 +15,8 @@ const Header = () => {
         </div>
 
         <div id="header-right">
+          <UserButton />
           <HeaderButton onClick={() => {}}>News</HeaderButton>
-          <Account />
           <PlayNow />
         </div>
       </div>

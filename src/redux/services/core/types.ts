@@ -1,3 +1,9 @@
 export type AuthCheckResponse = {
-    authenticated: boolean;
-}
+  authenticated: boolean;
+};
+
+export type UserDataResponse = {
+  image: string;
+  name: string;
+  userType: string;
+};

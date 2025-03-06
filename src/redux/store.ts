@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import testReducer from './features/test/testSlice';
+import authenticationReducer from './features/authentication/authentication';
 import { coreApi } from './services/core/core';
 
 export const store = configureStore({
   reducer: {
-    test: testReducer,
+    authentication: authenticationReducer,
     [coreApi.reducerPath]: coreApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

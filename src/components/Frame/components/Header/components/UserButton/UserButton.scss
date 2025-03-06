@@ -1,3 +1,110 @@
-#account {
+#user-button {
   height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  #user-login {
+    font-size: 1.2em;
+  }
+
+  #user-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1em;
+
+    #user-image {
+      .spinner-container {
+        .spinner {
+        }
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+
+    #user-text {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      gap: 0.3em;
+      line-height: 1;
+      color: #452a6f;
+      position: relative;
+      z-index: 2;
+
+      #user-name {
+        font-size: 1em;
+      }
+
+      #user-type {
+        font-size: 0.7em;
+      }
+    }
+  }
+
+  // Premium member styling
+  &.premium {
+    background-color: #fdd835;
+
+    &:before {
+      content: "";
+      width: 25px;
+      height: 200%;
+      position: absolute;
+      right: 0;
+      background: rgba(255, 255,255, 0.35);
+      filter: blur(6px);
+      translate: (40px);
+      pointer-events: none;
+      transition: all 0.1s ease-in;
+      rotate: (-50deg);
+      opacity: 0;
+    }
+
+    &:after {
+      content: "";
+      width: 15px;
+      height: 200%;
+      position: absolute;
+      right: 0;
+      background: rgba(255, 255,255, 0.35);
+      filter: blur(6px);
+      translate: (40px);
+      pointer-events: none;
+      transition: all 0.1s ease-in;
+      rotate: (-50deg);
+      opacity: 0;
+    }
+
+    // Hover animation
+    &:hover {
+      &:before {
+        rotate: (-20deg);
+        translate: (-80px 0);
+        transform: (skewX(20deg));
+        opacity: 1;
+      }
+
+      &:hover {
+        &:after {
+          rotate: (-20deg);
+          translate: (-20px 0);
+          transform: (skewX(20deg));
+          opacity: 1;
+        }
+      }
+    }
+
+    #user-text {
+      color: #212121;
+    }
+  }
 }
+

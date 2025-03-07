@@ -1,37 +1,67 @@
 import { useDispatch, useSelector } from "react-redux";
-
-import { updateToken } from "../../../../../../redux/features/authentication/authentication";
-import { useAuthCheckQuery, useUserDataQuery } from "../../../../../../redux/services/core/core";
+import { toggleLogin } from "../../../../../../redux/features/ui/ui";
+import {
+  useAuthCheckQuery,
+  useUserDataQuery,
+} from "../../../../../../redux/services/core/core";
 import { RootState } from "../../../../../../redux/store";
 import { decodeString } from "../../../../../../utils";
 import Spinner from "../../../../../Spinner/Spinner";
 import HeaderButton from "../HeaderButton/HeaderButton";
 import "./UserButton.scss";
+import { Link } from "react-router";
+import Button from "../../../../../Button/Button";
+import { useState } from "react";
 
 const UserButton = () => {
   const dispatch = useDispatch();
+  const [isFocus, setIsFocus] = useState(false);
 
   // Store data
   // ========================================
-  const authToken = decodeString(useSelector((state: RootState) => state.authentication.token)) ?? '';
+  const authToken =
+    decodeString(
+      useSelector((state: RootState) => state.authentication.token)
+    ) ?? "";
   // ==========
 
   // Api Data
   // ========================================
-  const { data: authCheckData, isLoading: authCheckLoading } = useAuthCheckQuery(authToken, {skip: (authToken === '')});
-  const { data: userData, isLoading: userDataIsLoading } = useUserDataQuery(authToken, {skip: (authToken === '')});
+  const { data: authCheckData, isLoading: authCheckLoading } =
+    useAuthCheckQuery(authToken, { skip: authToken === "" });
+  const { data: userData, isLoading: userDataIsLoading } = useUserDataQuery(
+    authToken,
+    { skip: authToken === "" }
+  );
   const authenticated = authCheckData?.authenticated ?? false;
-  const {image, name, userType} = userData ?? {image: '', name: '-', userType: 'standard'};
+  const { image, name, userType } = userData ?? {
+    image: "",
+    name: "-",
+    userType: "standard",
+  };
   const isPremium = userType === "premium";
   const isLoading = authCheckLoading || userDataIsLoading;
   // ==========
 
   return (
-    <div id="user-button" className={isPremium ? 'premium' : ''}>
-      <HeaderButton onClick={() => {
-        // TODO: Move this to login form submit
-        dispatch(updateToken('bulbasaur'));
-      }}>
+    <div
+      id="user-button"
+      className={`${isPremium ? "premium" : ""}${isFocus ? " open" : ""}`}
+    >
+      <HeaderButton
+         onFocus={() => {
+          setIsFocus(true);
+        }}
+        onBlur={() => {
+          setIsFocus(false);
+        }}
+        onClick={() => {
+          if (!authenticated) {
+            dispatch(toggleLogin(true));
+            return;
+          }
+        }}
+      >
         {!authenticated && <span id="user-login">Log In</span>}
 
         {authenticated && (
@@ -51,6 +81,39 @@ const UserButton = () => {
           </div>
         )}
       </HeaderButton>
+
+      <div id="user-dropdown">
+        <ul>
+          <li>
+            <Link
+              to="/my-account"
+              onFocus={() => {
+                setIsFocus(true);
+              }}
+              onBlur={() => {
+                setIsFocus(false);
+              }}
+            >
+              My account
+            </Link>
+          </li>
+          <li>
+            <Button
+              type="button"
+              className="btn-clear"
+              onFocus={() => {
+                setIsFocus(true);
+              }}
+              onBlur={() => {
+                setIsFocus(false);
+              }}
+              onClick={() => {}}
+            >
+              Log out
+            </Button>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

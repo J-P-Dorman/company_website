@@ -15,7 +15,7 @@ const initialState: AuthenticationState = {
 };
 
 export const authenticationSlice = createSlice({
-  name: "authenticaiton",
+  name: "authentication",
   initialState,
   reducers: {
     updateToken: (state, action) => {

@@ -3,10 +3,13 @@ import "./Input.scss";
 
 type Props = {
   label: string;
+  type?: string;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Input = ({ label }: Props) => {
-  const [value, setValue] = useState("");
+const Input = ({ label, type = 'text', value, onChange }: Props) => {
+  const [valueLocal, setValueLocal] = useState("");
   const [isFocus, setIsFocus] = useState(false);
 
   return (
@@ -18,10 +21,11 @@ const Input = ({ label }: Props) => {
       </div>
 
       <input
-        type="text"
-        value={value}
+        type={type}
+        value={value ? value : valueLocal}
         onChange={(event) => {
-          setValue(event.target.value);
+          setValueLocal(event.target.value);
+          if(onChange) onChange(event);
         }}
         onFocus={() => {
           setIsFocus(true);

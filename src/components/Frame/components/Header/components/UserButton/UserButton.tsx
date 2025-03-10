@@ -33,7 +33,7 @@ const UserButton = () => {
     authToken,
     { skip: authToken === "" }
   );
-  const authenticated = authCheckData?.authenticated ?? false;
+  const isAuthenticated = authCheckData?.authenticated ?? false;
   const { image, name, userType } = userData ?? {
     image: "",
     name: "-",
@@ -46,7 +46,7 @@ const UserButton = () => {
   return (
     <div
       id="user-button"
-      className={`${isPremium ? "premium" : ""}${isFocus ? " open" : ""}`}
+      className={`${isAuthenticated ? " authenticated" : ""}${isPremium ? " premium" : ""}${isFocus ? " open" : ""}`}
     >
       <HeaderButton
          onFocus={() => {
@@ -56,15 +56,15 @@ const UserButton = () => {
           setIsFocus(false);
         }}
         onClick={() => {
-          if (!authenticated) {
+          if (!isAuthenticated) {
             dispatch(toggleLogin(true));
             return;
           }
         }}
       >
-        {!authenticated && <span id="user-login">Log In</span>}
+        {!isAuthenticated && <span id="user-login">Log In</span>}
 
-        {authenticated && (
+        {isAuthenticated && (
           <div id="user-container">
             <div id="user-image">
               {isLoading && <Spinner />}

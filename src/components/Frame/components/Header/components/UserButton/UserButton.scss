@@ -111,11 +111,8 @@
 // Open menu and add premium gold shine effect
 // ============================================================================
 #user-button {
-
   // Closed state
   // ========================================
-  
-  // Close dropdown
   #user-dropdown {
     max-height: 0;
     overflow: hidden;
@@ -125,73 +122,76 @@
       max-height: 999px;
     }
   }
-  
-  // Premium gold shine 
-  &.premium {
-    #header-button button {
-      position: relative;
-  
-      &:before {
-        content: "";
-        width: 25px;
-        height: 200%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.35);
-        filter: blur(6px);
-        translate: (40px);
-        pointer-events: none;
-        transition: all 0.1s ease-in;
-        rotate: (-50deg);
-        opacity: 0;
-      }
-  
-      &:after {
-        content: "";
-        width: 15px;
-        height: 200%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.35);
-        filter: blur(6px);
-        translate: (40px);
-        pointer-events: none;
-        transition: all 0.1s ease-in;
-        rotate: (-50deg);
-        opacity: 0;
-      }
-    }
-  }
 
-  // Open state
-  // ========================================
-  &:hover,
-  &:active,
-  &:focus,
-  &.open {
-    // Open dropdown
-    #user-dropdown {
-      max-height: 999px !important;
-      transition: max-height 0.3s ease-in !important;
-    }
-
+  &.authenticated {
     // Premium gold shine
+    // ========================================
     &.premium {
       #header-button button {
+        position: relative;
+
         &:before {
-          rotate: (-20deg) !important;
-          translate: (-100px -40px) !important;
-          transform: (skewX(20deg)) !important;
-          opacity: 1 !important;
+          content: "";
+          width: 25px;
+          height: 200%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.35);
+          filter: blur(6px);
+          translate: (40px);
+          pointer-events: none;
+          transition: all 0.1s ease-in;
+          rotate: (-50deg);
+          opacity: 0;
         }
 
         &:after {
-          rotate: (-20deg);
-          translate: (-40px -30px) !important;
-          transform: (skewX(20deg)) !important;
-          opacity: 1 !important;
+          content: "";
+          width: 15px;
+          height: 200%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.35);
+          filter: blur(6px);
+          translate: (40px);
+          pointer-events: none;
+          transition: all 0.1s ease-in;
+          rotate: (-50deg);
+          opacity: 0;
+        }
+      }
+    }
+
+    // Open state
+    // ========================================
+    &:hover,
+    &:active,
+    &:focus,
+    &.open {
+      // Open dropdown
+      #user-dropdown {
+        max-height: 999px !important;
+        transition: max-height 0.3s ease-in !important;
+      }
+
+      // Premium gold shine
+      &.premium {
+        #header-button button {
+          &:before {
+            rotate: (-20deg) !important;
+            translate: (-100px -40px) !important;
+            transform: (skewX(20deg)) !important;
+            opacity: 1 !important;
+          }
+
+          &:after {
+            rotate: (-20deg);
+            translate: (-40px -30px) !important;
+            transform: (skewX(20deg)) !important;
+            opacity: 1 !important;
+          }
         }
       }
     }

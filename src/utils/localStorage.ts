@@ -5,3 +5,7 @@ export const getLsAuthToken = () => {
 export const setLsAuthToken = (token: string) => {
   localStorage.setItem("authToken", token);
 };
+
+export const clearLsAuthToken = () => {
+  localStorage.removeItem("authToken");
+};

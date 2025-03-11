@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Input.scss";
 
 type Props = {
@@ -8,12 +8,15 @@ type Props = {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Input = ({ label, type = 'text', value, onChange }: Props) => {
+const Input = ({ label, type = 'text', value: valueParent, onChange }: Props) => {
   const [valueLocal, setValueLocal] = useState("");
   const [isFocus, setIsFocus] = useState(false);
 
+  const value = valueParent === undefined ? valueLocal : valueParent;
+  const isEmpty = value === '';
+
   return (
-    <div className={`input${isFocus ? " focus" : ""}`}>
+    <div className={`input${isFocus ? " focus" : ""}${isEmpty ? " empty" : ""}`}>
       <div className="input-border">
         <div className="input-label">
           <div className="input-label-text">{label}</div>
@@ -22,7 +25,7 @@ const Input = ({ label, type = 'text', value, onChange }: Props) => {
 
       <input
         type={type}
-        value={value ? value : valueLocal}
+        value={value}
         onChange={(event) => {
           setValueLocal(event.target.value);
           if(onChange) onChange(event);

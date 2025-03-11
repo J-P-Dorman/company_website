@@ -19,6 +19,7 @@
       background: none;
       height: 40px;
       width: 10px;
+      transition: border-color 0.3s;
     }
 
     .input-label {
@@ -27,6 +28,7 @@
       height: calc(100% + 2px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.5);
       border-top: 1px solid rgba(255, 255, 255, 0);
+      transition: border-bottom-color 0.3s;
 
       .input-label-text {
         flex: 0 0 auto;
@@ -46,6 +48,7 @@
       background: none;
       height: 40px;
       width: 100%;
+      transition: border-color 0.3s;
     }
   }
 
@@ -80,4 +83,28 @@
       border-color: rgba(255, 255, 255, 1);
     }
   }
+}
+
+// Empty state
+// ========================================
+.input {
+	.input-label {
+    transition: border-top-color 0.2s, border-bottom-color 0.3s !important;
+
+    .input-label-text {
+      transition: color 0.3s, transform 0.3s;
+    }
+	}
+}
+
+.input.empty:not(.focus) {
+	.input-label {
+    border-color: rgba(255, 255, 255, 0.5);
+    transition: border-top-color 0.2s, border-bottom-color 0.3s !important;
+
+    .input-label-text {
+      color: rgba(255, 255, 255, 0.5);
+      transform: scale(1.1) translate(0px, 11px);
+    }
+	}
 }

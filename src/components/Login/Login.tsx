@@ -3,14 +3,15 @@ import logo from "../../assets/logo.svg";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { updateToken } from "../../redux/features/authentication/authentication";
 import { RootState } from "../../redux/store";
 import { toggleLogin } from "../../redux/features/ui/ui";
 import { useState } from "react";
+import { useAuthenticateMutation } from "../../redux/services/core/core";
 
 const Login = () => {
   const dispatch = useDispatch();
   const { visible } = useSelector((state: RootState) => state.ui);
+  const [authenticate] = useAuthenticateMutation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,11 +50,7 @@ const Login = () => {
             type="button"
             onClick={() => {
               dispatch(toggleLogin(false));
-              // This is where we would normally use
-              // the email and password to log in.
-              // Instead we're pinging the pokemon api
-              // as an example, since we don't have a back end
-              dispatch(updateToken("bulbasaur"));
+              authenticate({email, password});
             }}
           >
             Submit

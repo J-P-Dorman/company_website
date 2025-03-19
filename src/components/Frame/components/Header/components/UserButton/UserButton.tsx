@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { toggleLogin } from "../../../../../../redux/features/ui/ui";
 import {
+  defaultUserData,
   useAuthCheckQuery,
+  useInvalidateAuthMutation,
   useUserDataQuery,
 } from "../../../../../../redux/services/core/core";
 import { RootState } from "../../../../../../redux/store";
@@ -12,6 +14,7 @@ import "./UserButton.scss";
 import { Link } from "react-router";
 import Button from "../../../../../Button/Button";
 import { useState } from "react";
+import { clearAuthToken } from "../../../../../../redux/features/authentication/authentication";
 
 const UserButton = () => {
   const dispatch = useDispatch();
@@ -25,20 +28,23 @@ const UserButton = () => {
     ) ?? "";
   // ==========
 
-  // Api Data
+  // Api Mutations
   // ========================================
-  const { data: authCheckData, isLoading: authCheckLoading } =
-    useAuthCheckQuery(authToken, { skip: authToken === "" });
-  const { data: userData, isLoading: userDataIsLoading } = useUserDataQuery(
-    authToken,
-    { skip: authToken === "" }
-  );
+    const [invalidateAuth] = useInvalidateAuthMutation();
+  // ==========
+
+  // Api Queries
+  // ========================================
+  const {
+    data: authCheckData,
+    isLoading: authCheckLoading
+  } = useAuthCheckQuery(authToken);
+  const {
+    data: userData = defaultUserData,
+    isLoading: userDataIsLoading
+  } = useUserDataQuery(authToken);
   const isAuthenticated = authCheckData?.authenticated ?? false;
-  const { image, name, userType } = userData ?? {
-    image: "",
-    name: "-",
-    userType: "standard",
-  };
+  const { image, name, userType } = userData;
   const isPremium = userType === "premium";
   const isLoading = authCheckLoading || userDataIsLoading;
   // ==========
@@ -107,7 +113,13 @@ const UserButton = () => {
               onBlur={() => {
                 setIsFocus(false);
               }}
-              onClick={() => {}}
+              onClick={() => {
+                // Optimistically update local logout state
+                dispatch(clearAuthToken());
+
+                // Invalidate auth token on back end
+                invalidateAuth({ token: authToken });
+              }}
             >
               Log out
             </Button>

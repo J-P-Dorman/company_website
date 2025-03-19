@@ -3,10 +3,10 @@ import "./Button.scss";
 
 type Props = {
   onClick: MouseEventHandler<HTMLButtonElement>;
-  className?: string;
   type: "submit" | "reset" | "button" | undefined;
-  onFocus: React.FocusEventHandler<HTMLButtonElement> | undefined;
-  onBlur: React.FocusEventHandler<HTMLButtonElement> | undefined;
+  className?: string;
+  onFocus?: React.FocusEventHandler<HTMLButtonElement> | undefined;
+  onBlur?: React.FocusEventHandler<HTMLButtonElement> | undefined;
 };
 
 const Button = ({

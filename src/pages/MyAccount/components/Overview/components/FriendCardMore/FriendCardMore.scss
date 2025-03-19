@@ -1,0 +1,84 @@
+.friend-card-more {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  width: 100%;
+  max-width: 230px;
+
+  button {
+    height: 300px;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    overflow: hidden;
+    border:1px solid rgba(0, 0, 0, 0.5);
+    transform-origin: center;
+    transition: box-shadow 0.15s, transform 0.15s;
+    width: 100%;
+
+    &:hover,  &:focus, &:active {
+      -webkit-box-shadow: 0px 3px 8px 4px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 3px 8px 4px rgba(0,0,0,0.75);
+      box-shadow: 0px 3px 8px 4px rgba(0,0,0,0.75);
+      border:1px solid rgba(0, 0, 0, 0.5);
+      transform: translate(0, -8px) scale(1.02);
+
+      .card {
+        background-size: 220px;
+      }
+    }
+ 
+    .card {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      padding: 1em;
+      background-color: #623e9b;
+      background-size: 200px;
+      background-repeat: repeat;
+      background-position: center;
+      transition: background-size 0.15s;
+  
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+          rgba(0, 0, 0, 0),
+          rgba(0, 0, 0, 0.1),
+          rgba(0, 0, 0, 0.1),
+          rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.6),
+          rgba(0, 0, 0, 0.8)
+        );
+      }
+  
+      .text {
+        position: absolute;
+        top: 170px;
+        width: calc(100% - 2em);
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        gap: 0.6em;
+
+        span {
+          font-size: 1.2em;
+        }
+
+        img {
+          filter: invert(1);
+          width: 0.6em;
+        }
+      }
+    }
+  }
+}

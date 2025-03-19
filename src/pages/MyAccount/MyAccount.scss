@@ -1,0 +1,42 @@
+#my-account {
+  width: 100%;
+  background-color: #212121;
+  background-image: url("http://localhost:5173/src/assets/background.jpg");
+  background-repeat: repeat;
+  background-size: 300px;
+  position: relative;
+
+  .react-tabs {
+
+    .react-tabs__tab-list {
+      display: flex;
+      flex-flow: row nowrap;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+
+    .react-tabs__tab {
+      border-radius: 0;
+      height: 60px;
+      padding: 0 2em;
+      display: flex;
+      align-items: center;
+
+      &.react-tabs__tab--selected {
+        background: none;
+        color: #ffffff;
+        border: 1px solid rgba(0,0,0,0);
+        
+        &:after {
+          content: '';
+          position: absolute;
+          height: 5px;
+          bottom:0;
+          left:0;
+          right: 0;
+          background-color: #623e9b;
+        }
+      }
+    }
+  }
+  
+  }
+}

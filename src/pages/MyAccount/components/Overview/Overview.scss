@@ -144,5 +144,16 @@
     @media screen and (min-width: 1400px) {
  
     }
+
+  #characters-body {
+    background: #181818;
+    padding: 2em;
+    border-radius: 14px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2em;
   }
 }

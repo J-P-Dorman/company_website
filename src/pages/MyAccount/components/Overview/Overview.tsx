@@ -1,21 +1,27 @@
+import { useState } from "react";
+import Input from "../../../../components/Input/Input";
+import "./Overview.scss";
+import profilePicture from "../../../../assets/user.jpg";
 import { format, subMinutes } from "date-fns/fp";
 import imgAGreatStart from "../../../../assets/achievements/a_great_start.jpg";
 import imgBeachDweller from "../../../../assets/achievements/beach_dweller.jpg";
 import imgBucketBane from "../../../../assets/achievements/bucket_bane.jpg";
 import imgChatterbox from "../../../../assets/achievements/chatterbox.jpg";
+import imgHighGround from "../../../../assets/friends/high_ground_hater.jpg";
 import imgMasterChief from "../../../../assets/friends/420_master_chief.jpg";
-import imgBowser from "../../../../assets/friends/bowser.jpg";
 import imgBrotherBear from "../../../../assets/friends/brother_bear.jpg";
 import imgDebIan from "../../../../assets/friends/deb_Ian.jpg";
-import imgDwayneJohnson from "../../../../assets/friends/dwayne_johnson.jpg";
-import imgHighGround from "../../../../assets/friends/high_ground_hater.jpg";
+import imgBowser from "../../../../assets/friends/bowser.jpg";
 import imgHugo from "../../../../assets/friends/hugo.jpg";
-import profilePicture from "../../../../assets/user.jpg";
-import Button from "../../../../components/Button/Button";
+import imgDwayneJohnson from "../../../../assets/friends/dwayne_johnson.jpg";
+import imgQuantumQuentin from "../../../../assets/friends/quantum_quentin.jpg";
 import AchievementStub from "./components/AchievementStub/AchievementStub";
+import Button from "../../../../components/Button/Button";
 import FriendCard from "./components/FriendCard/FriendCard";
 import FriendCardMore from "./components/FriendCardMore/FriendCardMore";
-import "./Overview.scss";
+import imgVolition from "../../../../assets/characters/character_volition.jpg";
+import imgConcerto from "../../../../assets/characters/character_concerto.jpg";
+import Character from "./components/Character/Character";
 
 const Overview = () => {
   const date = subMinutes(174, new Date());
@@ -136,6 +142,31 @@ const Overview = () => {
           />
 
           <FriendCardMore onClick={() => {}} />
+        </div>
+      </div>
+
+      <div id="overview-characters">
+        <h2>Characters</h2>
+
+        <div id="characters-body">
+          <Character
+            characterData={{
+              id: 0,
+              name: "Volition",
+              image: imgVolition,
+              classes: {rogue: 10, wizard: 2},
+              playTime: 10944,
+            }}
+          />
+          <Character
+            characterData={{
+              id: 1,
+              name: "Concerto",
+              image: imgConcerto,
+              classes: {bard: 6},
+              playTime: 10944,
+            }}
+          />
         </div>
       </div>
     </div>

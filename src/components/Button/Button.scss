@@ -35,3 +35,17 @@ button.btn-clear {
     border: 1px solid #ffffff;
   }
 }
+
+button.btn-error {
+  background: #B71C1C;
+  color: #ffffff;
+
+  &:hover, &:active, &:focus {
+    outline: none; 
+    border: 1px solid rgb(0,0,0,0);
+  }
+
+  &:active, &:focus {
+    border: 1px solid #ffffff;
+  }
+}

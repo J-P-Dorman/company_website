@@ -1,7 +1,7 @@
 import Footer from "../../components/Footer/Footer";
 import Frame from "../../components/Frame/Frame";
 import Content from "../../components/Content/Content";
-import OrdersButton from "./components/OrdersButton/OrdersButton";
+import Orders from "./components/Orders/Orders";
 import "./MyAccount.scss";
 import AccountDetails from "./components/AccountDetails/AccountDetails";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";

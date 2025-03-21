@@ -3,7 +3,7 @@ import "./OrdersButton.scss";
 import chevronRight from "../../../../assets/icons/chevron-right.svg";
 import shoppingCart from "../../../../assets/icons/shopping-cart.svg";
 
-const OrdersButton = () => {
+const Orders = () => {
   return (
     <div id="orders-button">
       <Button
@@ -30,4 +30,4 @@ const OrdersButton = () => {
   );
 };
 
-export default OrdersButton;
+export default Orders;

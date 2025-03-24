@@ -3,7 +3,6 @@
 
   .select-input {
     position: relative;
-    margin-bottom: 2px;
     
     &:focus,
     &:active {
@@ -26,7 +25,7 @@
         border-right: none;
         border-radius: 4px 0 0 4px;
         background: none;
-        height: 40px;
+        height: 38px;
         width: 10px;
         transition: border-color 0.3s;
       }
@@ -34,7 +33,7 @@
       .select-input-label {
         flex: 0 0 auto;
         padding: 0 5px;
-        height: calc(100% + 2px);
+        height: 100%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.5);
         border-top: 1px solid rgba(255, 255, 255, 0);
         transition: border-bottom-color 0.3s;
@@ -44,7 +43,7 @@
           flex: 0 0 auto;
           font-size: 0.9em;
           line-height: 1;
-          transform: translate(0, -8px);
+          transform: translate(0, -9px);
         }
       }
 
@@ -56,7 +55,7 @@
         border-left: none;
         border-radius: 0 4px 4px 0;
         background: none;
-        height: 40px;
+        height: 38px;
         width: 100%;
         transition: border-color 0.3s;
       }
@@ -64,7 +63,7 @@
 
     .select-input-text {
       background: none;
-      height: 42px;
+      height: 40px;
       border-radius: 4px;
       border: none;
       width: 100%;

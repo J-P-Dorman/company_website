@@ -14,7 +14,7 @@ type Props = {
 };
 
 const Character = ({ characterData }: Props) => {
-  const { id, image, name, classes, playTime } = characterData;
+  const { image, name, classes, playTime } = characterData;
 
   return (
     <div className="character">
@@ -34,7 +34,7 @@ const Character = ({ characterData }: Props) => {
             <span className="character-title">Class:</span>
             <div className="character-value">
               {Object.entries(classes).map(([charClass, level]) => (
-                <div className="class">
+                <div className="class" key={charClass}>
                   {`${titleCase(charClass)}/${level}`}
                 </div>
               ))}

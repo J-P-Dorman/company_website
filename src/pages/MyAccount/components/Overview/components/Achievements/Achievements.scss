@@ -1,0 +1,21 @@
+#overview-achievements {
+  #overview-achievements-content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    #overview-achievement-stubs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      background-color: #181818;
+      padding: 0 0 2em 0;
+      border-radius: 14px;
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}

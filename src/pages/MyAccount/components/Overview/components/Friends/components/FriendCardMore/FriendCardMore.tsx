@@ -1,7 +1,7 @@
-import image from "../../../../../../assets/background_primary.jpg";
-import Button from "../../../../../../components/Button/Button";
+import image from "../../../../../../../../assets/background_primary.jpg";
+import Button from "../../../../../../../../components/Button/Button";
 import "./FriendCardMore.scss";
-import chevronRight from '../../../../../../assets/icons/chevron-right.svg';
+import chevronRight from '../../../../../../../../assets/icons/chevron-right.svg';
 
 type Props = {
   onClick: () => void;

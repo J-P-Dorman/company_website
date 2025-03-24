@@ -1,7 +1,7 @@
-import { titleCase } from "title-case";
-import "./Character.scss";
-import Button from "../../../../../../components/Button/Button";
 import { format } from "date-fns/fp";
+import { titleCase } from "title-case";
+import Button from "../../../../../../../../components/Button/Button";
+import "./Character.scss";
 
 type Props = {
   characterData: {
@@ -48,12 +48,16 @@ const Character = ({ characterData }: Props) => {
           </div>
         </div>
         <div className="character-delete">
-          <Button className="btn-error" type="button" onClick={() => {
-						// Fire off an RTKQ mutation to delete a character on the back end
-						// using id, then invalidate the characters GET request
-						// See authentication redux for example 
-						alert('Feature not implemented, see code for comment');
-					}}>
+          <Button
+            className="btn-error"
+            type="button"
+            onClick={() => {
+              // Fire off an RTKQ mutation to delete a character on the back end
+              // using id, then invalidate the characters GET request
+              // See authentication redux for example
+              alert("Feature not implemented, see code for comment");
+            }}
+          >
             Delete Character
           </Button>
         </div>

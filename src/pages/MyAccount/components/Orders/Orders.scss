@@ -1,48 +1,18 @@
-#orders-button {
+#orders {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  padding: 4em 5em;
-  background: #2d2d2d;
+  padding: 3em;
 
-  button {
-    border: 1px solid #ffffff;
+  #order-container {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5em 3em;
-    max-width: 700px;
-
-    .left {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2.5em;
-
-      .image {
-   
-        img {
-          height: 25px;
-          filter: invert(1);
-        
-        }
-      }
-  
-      .title {
-        font-size: 1.3em;
-      }
-    }
-
-    .chevron {
-
-      img {
-        height: 25px;
-        filter: invert(1);
-      }
-    }
-
-
+    flex-flow: column nowrap;
+    align-items: stretch;
+    gap: 3em;
+    background: #181818;
+    padding: 3em;
+    border-radius: 20px;
   }
 }

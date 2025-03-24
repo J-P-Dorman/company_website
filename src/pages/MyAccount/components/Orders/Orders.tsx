@@ -1,31 +1,20 @@
-import Button from "../../../../components/Button/Button";
-import "./OrdersButton.scss";
-import chevronRight from "../../../../assets/icons/chevron-right.svg";
-import shoppingCart from "../../../../assets/icons/shopping-cart.svg";
+import { OrderData } from "../../types";
+import Order from "./components/Order/Order";
+import "./Orders.scss";
 
-const Orders = () => {
+type Props = {
+  orders: OrderData[];
+};
+
+const Orders = ({ orders }: Props) => {
   return (
-    <div id="orders-button">
-      <Button
-        className="btn-clear"
-        onClick={() => {
-          console.log("bwump");
-        }}
-        type="button"
-      >
-        <div className="left">
-          <div className="image">
-            <img src={shoppingCart} />
-          </div>
-          <div className="title">My Orders</div>
-        </div>
-
-        <div className="right">
-          <div className="chevron">
-            <img src={chevronRight} />
-          </div>
-        </div>
-      </Button>
+    <div id="orders">
+      <div id="order-container">
+        {orders.map((order) => {
+          const { id } = order;
+          return <Order key={id} orderData={order} />;
+        })}
+      </div>
     </div>
   );
 };

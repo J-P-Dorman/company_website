@@ -7,6 +7,7 @@ import AccountDetails from "./components/AccountDetails/AccountDetails";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Overview from "./components/Overview/Overview";
+import { orderData } from "./data";
 
 const MyAccount = () => {
   return (
@@ -27,7 +28,7 @@ const MyAccount = () => {
               <AccountDetails />
             </TabPanel>
             <TabPanel>
-              <OrdersButton />
+              <Orders orders={orderData} />
             </TabPanel>
           </Tabs>
         </Content>

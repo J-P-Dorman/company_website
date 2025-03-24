@@ -17,7 +17,7 @@ const MyAccount = () => {
           <Tabs>
             <TabList>
               <Tab>Overview</Tab>
-              <Tab>Details</Tab>
+              <Tab>Account Details</Tab>
               <Tab>Orders</Tab>
             </TabList>
 

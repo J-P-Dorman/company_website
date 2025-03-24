@@ -6,13 +6,9 @@
   padding: 3em;
 
   #order-container {
-    width: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
     gap: 3em;
-    background: #181818;
-    padding: 3em;
-    border-radius: 20px;
   }
 }

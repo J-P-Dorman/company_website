@@ -8,7 +8,7 @@ type Props = {
 
 const AchievementStub = ({ imgSrc, title, description }: Props) => {
   return (
-    <div className="achievement-stub">
+    <div className="achievement-stub card">
       <div className="achievement-stub-image">
         <img src={imgSrc} alt="achievement image" />
       </div>

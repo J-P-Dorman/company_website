@@ -24,7 +24,7 @@ type Timezone = {
   id: string;
 };
 
-type Country = { name: string, code: string };
+type Country = { name: string; code: string };
 
 const timeZoneOptions = timezones.map((timezone) => ({
   label: timezone.label,
@@ -55,92 +55,98 @@ const MyAccount = () => {
   );
 
   return (
-    <div id="account-details">
-      <form>
-        <div id="account-form-inputs">
-          <Input
-            label="First Name:"
-            type="text"
-            value={firstName}
-            onChange={(event) => {
-              setFirstName(event.target.value);
-            }}
-          />
+    <div className="account-tab" id="account-details">
+      <div className="account-section">
+        <div className="section-body">
+          <div className="card">
+            <form>
+              <div id="account-form-inputs">
+                <Input
+                  label="First Name:"
+                  type="text"
+                  value={firstName}
+                  onChange={(event) => {
+                    setFirstName(event.target.value);
+                  }}
+                />
 
-          <Input
-            label="Last Name:"
-            type="text"
-            value={lastName}
-            onChange={(event) => {
-              setLastName(event.target.value);
-            }}
-          />
+                <Input
+                  label="Last Name:"
+                  type="text"
+                  value={lastName}
+                  onChange={(event) => {
+                    setLastName(event.target.value);
+                  }}
+                />
 
-          <Input
-            label="Telephone:"
-            type="text"
-            value={telephone}
-            onChange={(event) => {
-              setTelephone(event.target.value);
-            }}
-          />
+                <Input
+                  label="Telephone:"
+                  type="text"
+                  value={telephone}
+                  onChange={(event) => {
+                    setTelephone(event.target.value);
+                  }}
+                />
 
-          <Input
-            label="Email:"
-            type="text"
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
+                <Input
+                  label="Email:"
+                  type="text"
+                  value={email}
+                  onChange={(event) => {
+                    setEmail(event.target.value);
+                  }}
+                />
 
-          <Input
-            label="Email:"
-            type="text"
-            value={email}
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
+                <Input
+                  label="Email:"
+                  type="text"
+                  value={email}
+                  onChange={(event) => {
+                    setEmail(event.target.value);
+                  }}
+                />
 
-          <Select
-            label="Language:"
-            value={language}
-            onChange={(option) => {
-              setLanguage(option);
-            }}
-            options={languageOptions}
-          />
+                <Select
+                  label="Language:"
+                  value={language}
+                  onChange={(option) => {
+                    setLanguage(option);
+                  }}
+                  options={languageOptions}
+                />
 
-          <Select
-            label="Time Format:"
-            value={timeFormat}
-            onChange={(option) => {
-              setTimeFormat(option);
-            }}
-            options={timeFormatOptions}
-          />
+                <Select
+                  label="Time Format:"
+                  value={timeFormat}
+                  onChange={(option) => {
+                    setTimeFormat(option);
+                  }}
+                  options={timeFormatOptions}
+                />
 
-          <Select
-            label="Timezone:"
-            value={timeZone}
-            onChange={(option) => {
-              setTimeZone(option);
-            }}
-            options={timeZoneOptions}
-          />
+                <Select
+                  label="Timezone:"
+                  value={timeZone}
+                  onChange={(option) => {
+                    setTimeZone(option);
+                  }}
+                  options={timeZoneOptions}
+                />
 
-          <Select
-            label="Country:"
-            value={country}
-            onChange={(option) => {
-              setCountry(option);
-            }}
-            options={countryOptions}
-          />
+                <Select
+                  label="Country:"
+                  value={country}
+                  onChange={(option) => {
+                    setCountry(option);
+                  }}
+                  options={countryOptions}
+                />
+              </div>
+            </form>
+          </div>
         </div>
-      </form>
-  </div>
+      </div>
+    </div>
   );
 };
 

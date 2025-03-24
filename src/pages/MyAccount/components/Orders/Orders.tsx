@@ -8,12 +8,14 @@ type Props = {
 
 const Orders = ({ orders }: Props) => {
   return (
-    <div id="orders">
-      <div id="order-container">
-        {orders.map((order) => {
-          const { id } = order;
-          return <Order key={id} orderData={order} />;
-        })}
+    <div className="account-tab" id="orders">
+      <div className="account-section">
+        <div className="section-body" id="order-container">
+          {orders.map((order) => {
+            const { id } = order;
+            return <Order key={id} orderData={order} />;
+          })}
+        </div>
       </div>
     </div>
   );

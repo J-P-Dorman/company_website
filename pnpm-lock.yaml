@@ -60,6 +60,15 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.3.4
         version: 4.3.4(vite@6.2.0(sass-embedded@1.85.1)(tsx@4.19.3))
+      aws-cdk:
+        specifier: ^2.1007.0
+        version: 2.1007.0
+      aws-cdk-lib:
+        specifier: ^2.188.0
+        version: 2.188.0(constructs@10.4.2)
+      constructs:
+        specifier: ^10.4.2
+        version: 10.4.2
       eslint:
         specifier: ^9.21.0
         version: 9.21.0

@@ -34,8 +34,13 @@
           cursor: pointer;
         }
 
-        img {
-          height: 50px;
+        a {
+          opacity: 1;
+          display: flex;
+
+          img {
+            height: 50px;
+          }
         }
       }
     }

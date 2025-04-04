@@ -3,8 +3,8 @@ import "./HeaderButton.scss";
 
 type Props = {
   onClick: () => void;
-  onFocus: React.FocusEventHandler<HTMLButtonElement> | undefined;
-  onBlur: React.FocusEventHandler<HTMLButtonElement> | undefined;
+  onFocus?: React.FocusEventHandler<HTMLButtonElement> | undefined;
+  onBlur?: React.FocusEventHandler<HTMLButtonElement> | undefined;
 };
 
 const HeaderButton = ({

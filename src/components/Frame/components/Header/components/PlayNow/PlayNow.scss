@@ -1,13 +1,19 @@
 #play-now {
   height: 100%;
 
-  button {
-    background: #ffffff;
-    color: #623e9b;
-    font-size: 1.2em;
+  a {
+    opacity: 1;
 
-    &:hover, &:active, &:focus  {
-      background-color: rgba(255, 255, 255, 0.6);
+    button {
+      background: #ffffff;
+      font-size: 1.2em;
+      color: #623e9b;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: rgba(255, 255, 255, 0.6);
+      }
     }
   }
 }

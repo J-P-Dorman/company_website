@@ -7,6 +7,7 @@ import { useAuthCheckQuery } from "./redux/services/core/core";
 import { RootState } from "./redux/store";
 import { decodeString } from "./utils";
 import Fab from "./components/Fab/Fab";
+import Game from "./pages/Game/Game";
 
 const App = () => {
   // Store data
@@ -28,7 +29,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <>
+          <Route path="/game" element={<Game />} />
           {isAuthenticated && (
             <>
               <Route path="/my-account" element={<MyAccount />} />

@@ -6,6 +6,7 @@ import MyAccount from "./pages/MyAccount/MyAccount";
 import { useAuthCheckQuery } from "./redux/services/core/core";
 import { RootState } from "./redux/store";
 import { decodeString } from "./utils";
+import Fab from "./components/Fab/Fab";
 
 const App = () => {
   // Store data
@@ -23,17 +24,21 @@ const App = () => {
   // ==========
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {isAuthenticated && (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
           <>
-            <Route path="/my-account" element={<MyAccount />} />
-          </>
-        )}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
+          {isAuthenticated && (
+            <>
+              <Route path="/my-account" element={<MyAccount />} />
+            </>
+          )}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+      <Fab />
+    </>
   );
 };
 

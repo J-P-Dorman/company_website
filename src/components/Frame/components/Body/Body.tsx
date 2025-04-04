@@ -1,9 +1,7 @@
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren } from "react";
 import "./Body.scss";
 
-type Props = {};
-
-const Body = ({ children }: PropsWithChildren<Props>) => {
+const Body = ({ children }: PropsWithChildren) => {
   return <div id="body">{children}</div>;
 };
 

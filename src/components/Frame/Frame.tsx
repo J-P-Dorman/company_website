@@ -1,10 +1,8 @@
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren } from "react";
 import Header from "./components/Header/Header";
 import Body from "./components/Body/Body";
 
-type Props = {};
-
-const Frame = ({ children }: PropsWithChildren<Props>) => {
+const Frame = ({ children }: PropsWithChildren) => {
   return (
     <div id="frame">
       <Header></Header>

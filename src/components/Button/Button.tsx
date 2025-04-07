@@ -3,7 +3,7 @@ import "./Button.scss";
 
 type Props = {
   onClick: MouseEventHandler<HTMLButtonElement>;
-  type: "submit" | "reset" | "button" | undefined;
+  type?: "submit" | "reset" | "button" | undefined;
   className?: string;
   onFocus?: React.FocusEventHandler<HTMLButtonElement> | undefined;
   onBlur?: React.FocusEventHandler<HTMLButtonElement> | undefined;
@@ -13,7 +13,7 @@ const Button = ({
   children,
   onClick,
   className,
-  type,
+  type = 'button',
   onFocus,
   onBlur,
 }: PropsWithChildren<Props>) => {

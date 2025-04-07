@@ -11,6 +11,11 @@ body,
   margin: 0;
 }
 
+html, body {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .width-wrapper {
   width: 100%;
   max-width: 1200px;

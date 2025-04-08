@@ -17,17 +17,17 @@ const Home = () => {
         <div id="footer-top">
           <div id="footer-about" className="footer-links">
             <h3>About</h3>
-            <div>
+            <div className="footer-link">
               <a className="small-link" href="#">
                 About us
               </a>
             </div>
-            <div>
+            <div className="footer-link">
               <a className="small-link" href="#">
                 Careers
               </a>
             </div>
-            <div>
+            <div className="footer-link">
               <a className="small-link" href="#">
                 Contact us
               </a>
@@ -35,17 +35,17 @@ const Home = () => {
           </div>
           <div id="footer-legal" className="footer-links">
             <h3>Legal</h3>
-            <div>
+            <div className="footer-link">
               <a className="small-link" href="#">
                 Accessibility Statement
               </a>
             </div>
-            <div>
+            <div className="footer-link">
               <a className="small-link" href="#">
                 Privacy Policy
               </a>
             </div>
-            <div>
+            <div className="footer-link">
               <a className="small-link" href="#">
                 Terms & conditions
               </a>
@@ -53,7 +53,7 @@ const Home = () => {
           </div>
           <div id="footer-media" className="footer-links">
             <h3>Media</h3>
-            <div>
+            <div className="footer-link">
               <a className="small-link" href="#">
                 Blog
               </a>

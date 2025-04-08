@@ -13,6 +13,8 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       padding: 0 2em;
       margin: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
 
       .react-tabs__tab {
         border-radius: 0;
@@ -20,6 +22,7 @@
         padding: 0 2em;
         display: flex;
         align-items: center;
+        white-space: nowrap;
 
         &.react-tabs__tab--selected {
           background: none;
@@ -45,7 +48,11 @@
     flex-flow: column nowrap;
     align-items: stretch;
     gap: 3em;
-    padding: 2em 4em 2em 4em;
+    padding: 1rem 2rem;
+
+    @media only screen and (min-width: 576px) {
+      padding: 2em 4em;
+    }
 
     .account-section {
       padding: 0;

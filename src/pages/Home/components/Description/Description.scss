@@ -1,19 +1,39 @@
 #description {
+  padding: 1rem 0;
+
   .description-section {
     display: flex;
     align-items: center;
-    gap: 5em;
-    padding: 4em 5em;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    padding: 2rem 2rem;
+
+    @media only screen and (min-width: 576px) {
+      flex-flow: row nowrap;
+      gap: 5em;
+      padding: 4em 5em;
+    }
 
     .description-section-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 60%;
+      gap: 1rem;
+      order: 1;
+
+      @media only screen and (min-width: 576px) {
+        width: 60%;
+        order: auto;
+      }
 
       h2,
       p {
         margin-top: 0;
+        text-align: center;
+
+        @media only screen and (min-width: 576px) {
+          text-align: left;
+        }
       }
     }
 
@@ -23,7 +43,12 @@
       border-radius: 20px;
       position: relative;
       border: 2px solid rgba(255, 255, 255, 0.2);
-      width: 40%;
+      order: 2;
+
+      @media only screen and (min-width: 576px) {
+        width: 40%;
+        order: auto;
+      }
 
       &:before {
         content: "";

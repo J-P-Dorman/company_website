@@ -1,13 +1,24 @@
 .achievement-stub {
-  padding: 1em 2em 1em 1em;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 1.5em;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-flow: column nowrap;
+  padding: 1rem;
+
+  @media only screen and (min-width: 576px) {
+    flex-flow: row nowrap;
+    padding: 1em 2em 1em 1rem;
+  }
 
   .achievement-stub-image {
     display: flex;
     align-items: center;
+    order: 1;
+
+    @media only screen and (min-width: 576px) {
+      order: auto;
+    }
 
     img {
       width: 60px;
@@ -17,12 +28,28 @@
   }
 
   .achievement-stub-text {
+    order: 0;
+
+    @media only screen and (min-width: 576px) {
+      order: auto;
+    }
+
     .achievement-stub-title {
-      font-size: 1.1em;
+      font-size: 1.1rem;
+      text-align: center;
+
+      @media only screen and (min-width: 576px) {
+        text-align: left;
+      }
     }
 
     .achievement-stub-description {
-      font-size: 0.8em;
+      font-size: 0.8rem;
+      text-align: center;
+
+      @media only screen and (min-width: 576px) {
+        text-align: left;
+      }
     }
   }
 }

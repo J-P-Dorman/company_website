@@ -20,41 +20,103 @@
     }
 
     #footer-top {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 1rem;
+      justify-content: space-between;
       width: 100%;
-      display: grid;
-      grid-template-columns: 33.3% 33.3% 33.3%;
-      padding: 1em 5em;
+      padding: 0 2rem 1rem 2rem;
+
+      @media only screen and (min-width: 576px) {
+        padding: 0 4rem 1rem 4rem;
+      }
+
+      @media only screen and (min-width: 992px) {
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+        padding: 1em 5em;
+      }
 
       .footer-links {
         display: flex;
         flex-flow: column nowrap;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: center;
+        max-width: 33%;
+        gap: 0.3rem;
+
+        @media only screen and (min-width: 992px) {
+          align-items: flex-start;
+        }
 
         h3 {
           margin-top: 0;
           margin-bottom: 0.3em;
+        }
+
+        .footer-link {
+          display: flex;
+          justify-content: center;
+
+          @media only screen and (min-width: 992px) {
+            justify-content: flex-start;
+          }
+
+          a {
+            flex: 0 0 auto;
+          }
         }
       }
     }
   }
 
   #footer-bottom {
-    display: grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
-    padding: 1em 5em;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem 0 2rem;
+    gap: 2rem;
     width: 100%;
+
+    @media only screen and (min-width: 576px) {
+      padding: 1rem 4rem 0 4rem;
+    }
+
+    @media only screen and (min-width: 992px) {
+      display: grid;
+      grid-template-columns: 33.3% 66.6%;
+      padding: 1em 5em;
+      width: 100%;
+      gap: 1rem;
+    }
 
     #footer-logo {
       img {
         width: 120px;
       }
+
+      @media only screen and (min-width: 576px) {
+        width: 33.3%;
+      }
     }
 
     #footer-socials {
       display: flex;
-      align-items: center;
-      gap: 2em;
+      flex-flow: row wrap;
+      gap: 0.5rem;
+
+      @media only screen and (min-width: 576px) {
+        display: flex;
+        align-items: center;
+        gap: 0.8em;
+      }
+
+      @media only screen and (min-width: 768px) {
+        gap: 1em;
+      }
+
+      @media only screen and (min-width: 992px) {
+        gap: 2em;
+      }
 
       img {
         width: 30px;

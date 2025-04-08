@@ -1,15 +1,16 @@
-import Frame from "../../components/Frame/Frame";
-import Hero from "./components/Hero/Hero";
-import Description from "./components/Description/Description";
+import imgBackground from '../../assets/background.jpg';
+import Content from "../../components/Content/Content";
 import Footer from "../../components/Footer/Footer";
+import Frame from "../../components/Frame/Frame";
+import Login from "../../components/Login/Login";
+import Description from "./components/Description/Description";
+import Hero from "./components/Hero/Hero";
 import Newsletter from "./components/Newsletter/Newsletter";
 import "./Home.scss";
-import Content from "../../components/Content/Content";
-import Login from "../../components/Login/Login";
 
 const Home = () => {
   return (
-    <div id="home">
+    <div id="home" style={{backgroundImage: `url('${imgBackground}')`}}>
       <Frame>
         <Hero />
         <Content>

@@ -8,6 +8,21 @@ import { useBreakpoint } from "../../utils";
 const Game = () => {
   const breakpoint = useBreakpoint();
   const isMobile = breakpoint === "xs" || breakpoint === "s";
+
+  // Stop keys interacting with parent page while iframe is focused
+  useEffect(() => {
+    const innerWindow = document.querySelector("iframe")?.contentWindow;
+    const preventDefault = (event: KeyboardEvent) => {
+      event.preventDefault();
+    };
+
+    innerWindow?.addEventListener?.("keydown", preventDefault);
+
+    return () => {
+      innerWindow?.removeEventListener?.("keydown", preventDefault);
+    };
+  }, []);
+
   return (
     <div id="game">
       <Frame>

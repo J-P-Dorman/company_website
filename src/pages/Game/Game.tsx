@@ -1,9 +1,13 @@
-import Frame from "../../components/Frame/Frame";
+import { useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
-import "./Game.scss";
+import Frame from "../../components/Frame/Frame";
 import Login from "../../components/Login/Login";
+import "./Game.scss";
+import { useBreakpoint } from "../../utils";
 
 const Game = () => {
+  const breakpoint = useBreakpoint();
+  const isMobile = breakpoint === "xs" || breakpoint === "s";
   return (
     <div id="game">
       <Frame>

@@ -9,6 +9,10 @@ const Game = () => {
       <Frame>
         <div className="content">
           <iframe src="/game_build/index.html" />
+          {isMobile && (<div id="mobile-warning">
+            <div>Mobile controls not implemented yet, try on desktop</div>
+            <div>bit.ly/42PwBhF</div>
+            </div>)}
         </div>
         <Footer />
       </Frame>

@@ -1,20 +1,47 @@
-#header-button {
+.header-button {
   height: 100%;
-  font-size: 1em;
+  width: 100%;
+  font-size: 1rem;
+
+  @media only screen and (min-width: 768px) {
+    width: auto;
+  }
+
+  a {
+    height: 100%;
+    opacity: 1;
+  }
 
   button {
     height: 100%;
+    width: 100%;
     border-radius: 0;
     background: none;
     transition: background-color 0.3s;
-    padding: 0 1.5em;
-    border: none;
-    min-width: 120px;
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: flex-start;
+    transition: none;
+    border: 1px solid rgba(255, 255, 255, 0);
+    max-width: none;
+    color: rgba(255, 255, 255, 0.7);
 
-    &:hover, &:active, &:focus  {
-      background-color: rgba(255, 255, 255, 0.2);
+    @media only screen and (min-width: 768px) {
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: #ffffff;
+      background: none;
+      border: 1px solid rgba(0, 0, 0, 0);
       outline: none;
-      border: none;
+
+      @media only screen and (min-width: 768px) {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
     }
   }
 }

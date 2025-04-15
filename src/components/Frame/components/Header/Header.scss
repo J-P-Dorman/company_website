@@ -51,27 +51,24 @@
       flex-flow: row nowrap;
       align-items: center;
       justify-content: flex-end;
+
+      #menu-btn {
+        padding: 0.6em 0 0.6em 1.2em;
+      }
     }
   }
 
-  .sheet-body {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    gap: 2px;
-
-    button {
-      width: 100%;
-      padding: 1rem 2rem;
+  .sheet-content {
+    .sheet-body {
       display: flex;
-      justify-content: flex-start;
-      transition: none;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      gap: 2px;
+      padding: 0.8rem 0;
 
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: rgba(255, 255, 255, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+      a {
+        padding: 0;
+        width: 100%;
       }
     }
   }

@@ -1,18 +1,30 @@
 #play-now {
   height: 100%;
+  width: 100%;
+  padding-top: 0.5rem;
+
+  @media only screen and (min-width: 768px) {
+    width: auto;
+    padding-top: 0;
+  }
 
   a {
     opacity: 1;
+
+    @media only screen and (min-width: 768px) {
+      height: 100%;
+    }
 
     button {
       background: #ffffff;
       font-size: 1.2em;
       color: #623e9b;
+      padding: 1rem 2rem !important;
 
       &:hover,
       &:active,
       &:focus {
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.8);
       }
     }
   }

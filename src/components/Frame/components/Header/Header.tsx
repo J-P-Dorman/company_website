@@ -1,18 +1,18 @@
-import companyLogo from "../../../../assets/logo.svg";
-import UserButton from "./components/UserButton/UserButton";
-import PlayNow from "./components/PlayNow/PlayNow";
-import "./Header.scss";
-import HeaderButton from "./components/HeaderButton/HeaderButton";
-import { Link } from "react-router";
-import Sheet from "./components/Sheet/Sheet";
-import Button from "../../../Button/Button";
 import { useState } from "react";
-import { useBreakpoint, useResize } from "../../../../utils";
+import { Link } from "react-router";
 import imgMenu from "../../../../assets/icons/bars.svg";
+import companyLogo from "../../../../assets/logo.svg";
+import { useBreakpoint } from "../../../../utils";
+import Button from "../../../Button/Button";
+import HeaderButton from "./components/HeaderButton/HeaderButton";
+import PlayNow from "./components/PlayNow/PlayNow";
+import Sheet from "./components/Sheet/Sheet";
+import UserButton from "./components/UserButton/UserButton";
+import "./Header.scss";
 
 const Header = () => {
   const breakpoint = useBreakpoint();
-  const isMobile = breakpoint === 'xs' || breakpoint === 's';
+  const isMobile = breakpoint === "xs" || breakpoint === "s";
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -34,7 +34,9 @@ const Header = () => {
           {!isMobile && (
             <>
               <UserButton />
-              <HeaderButton onClick={() => {}}>News</HeaderButton>
+              <HeaderButton link="/news" onClick={() => {}}>
+                News
+              </HeaderButton>
               <PlayNow />
             </>
           )}
@@ -42,6 +44,7 @@ const Header = () => {
           {isMobile && (
             <>
               <Button
+                id="menu-btn"
                 className="btn-clear"
                 onClick={() => {
                   setIsOpen((prev) => !prev);
@@ -54,31 +57,18 @@ const Header = () => {
                 type="primary"
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
-              >
-                <>
-                  <Button
-                    className="btn-clear"
-                    type="button"
-                    onClick={() => {}}
-                  >
-                    Log In
-                  </Button>
-                  <Button
-                    className="btn-clear"
-                    type="button"
-                    onClick={() => {}}
-                  >
+                header={(
+                  <UserButton />
+                )}
+                body={(
+                  <>
+                  <HeaderButton link="/news" onClick={() => {}}>
                     News
-                  </Button>
-                  <Button
-                    className="btn-clear"
-                    type="button"
-                    onClick={() => {}}
-                  >
-                    Play Now
-                  </Button>
+                  </HeaderButton>
+                  <PlayNow />
                 </>
-              </Sheet>
+                )}
+              />
             </>
           )}
         </div>

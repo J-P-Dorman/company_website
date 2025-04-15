@@ -1,4 +1,4 @@
-import { PropsWithChildren, useState } from "react";
+import { JSX, useState } from "react";
 import Button from "../../../../../Button/Button";
 import "./Sheet.scss";
 
@@ -8,9 +8,11 @@ type Props = {
   align: "left" | "right" | "bottom";
   isOpen?: boolean;
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  header?: JSX.Element;
+  body?: JSX.Element;
 };
 
-const Sheet = ({ type, title, align, children, isOpen: isOpenParent, setIsOpen: setIsOpenParent }: PropsWithChildren<Props>) => {
+const Sheet = ({ type, title, align, header, body, isOpen: isOpenParent, setIsOpen: setIsOpenParent }: Props) => {
   const [isOpenLocal, setIsOpenLocal] = useState(isOpenParent ?? false);
 
   const isOpen = isOpenParent === undefined ? isOpenLocal : isOpenParent;
@@ -30,10 +32,10 @@ const Sheet = ({ type, title, align, children, isOpen: isOpenParent, setIsOpen: 
 
       <div className="sheet-content">
         <div className="sheet-header">
-        <h2>{title}</h2>
+          {header}
         </div>
 
-        <div className="sheet-body">{children}</div>
+        <div className="sheet-body">{body}</div>
       </div>
     </div>
   );

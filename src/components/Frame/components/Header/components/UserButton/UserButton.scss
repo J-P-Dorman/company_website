@@ -1,196 +1,332 @@
-#user-button {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+// Mobile styles
+// Normally we don't keep mobile and desktop styles so separate,
+// but these styles are so wildly different, I think it makes sense here
+// ========================================
+@media only screen and (max-width: 768px) {
+  #user-button {
+    width: 100%;
+    background-color: #623e9b;
 
-  #header-button button {
-    overflow: hidden;
+    &:not(.authenticated) {
+      transform: translate(0, 0.5rem);
 
-    #user-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      gap: 1em;
-      position: relative;
+      #user-dropdown {
+        display: none;
+      }
+    }
 
-      #user-image {
-        .spinner-container {
-          .spinner {
-          }
-        }
-
-        img {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-        }
+    &.authenticated {
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: #623e9b;
       }
 
-      #user-text {
+      .header-button {
         display: flex;
-        flex-flow: column nowrap;
-        align-items: flex-start;
-        gap: 0.3em;
-        line-height: 1;
-        color: #452a6f;
-        position: relative;
-        z-index: 2;
 
-        #user-name {
-          font-size: 1em;
-        }
-
-        #user-type {
-          font-size: 0.7em;
-        }
-      }
-    }
-  }
-
-  &.premium {
-    #header-button button {
-      background-color: #fdd835;
-
-      #user-text {
-        color: #212121;
-      }
-    }
-  }
-
-  #user-dropdown {
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background-color: #9161e0;
-    width: 120%;
-    -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.7);
-    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.7);
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      min-width: 100%;
-
-      li {
-        min-width: 100%;
-
-        > a,
         > button {
-          display: flex;
-          padding: 1.2em 2.5em;
-          border-radius: 0px;
-          min-width: 100%;
-          text-align: left;
-          font-size: 1em;
-          border: 1px solid rgba(0, 0, 0, 0);
-          color: #ffffff;
-          opacity: 1;
-          font-weight: 400;
-          line-height: 1;
+          width: 100%;
+          padding: 0;
 
-          &:hover,
-          &:active,
-          &:focus,
-          &:focus-visible {
-            border: 1px solid rgba(0, 0, 0, 0);
-            background: #7045b7;
-            outline: none;
-            opacity: 1;
-            color: #ffffff;
+          #user-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            gap: 1rem;
+
+            #user-image {
+              display: flex;
+
+              img {
+                width: 70px;
+              }
+            }
+
+            #user-text {
+              display: flex;
+              flex-flow: column nowrap;
+              align-items: flex-start;
+              gap: 0.3em;
+              line-height: 1;
+              color: #452a6f;
+              position: relative;
+              z-index: 2;
+
+              #user-name {
+                font-size: 1em;
+              }
+
+              #user-type {
+                font-size: 0.7em;
+                opacity: 0.8;
+              }
+            }
           }
         }
+      }
+
+      #user-dropdown {
+        background: #402866;
+        -webkit-box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.25);
+        box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.25);
+
+        ul {
+          margin: 0;
+          padding: 0.8rem 0;
+          list-style-type: none;
+          margin: 0;
+          width: 100%;
+
+          li {
+            a,
+            button {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              width: 100%;
+              color: rgba(255, 255, 255, 0.8);
+              opacity: 1;
+              padding: 0.8rem 2rem;
+
+              &:hover,
+              &:focus,
+              &:active {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #user-button {
+    &.premium {
+      .header-button button {
+        background-color: #fdd835;
+
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: #fdd835;
+        }
+
+        #user-text {
+          color: #212121;
+        }
+      }
+
+      #user-dropdown {
+        background: #d7b82d;
+        position: relative;
       }
     }
   }
 }
 
-// Open menu and add premium gold shine effect
-// ============================================================================
-#user-button {
-  // Closed state
-  // ========================================
-  #user-dropdown {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
+// Desktop styles
+// ========================================
+@media only screen and (min-width: 768px) {
+  #user-button {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 
-    &:hover {
-      max-height: 999px;
+    .header-button button {
+      overflow: hidden;
+
+      #user-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 1em;
+        position: relative;
+
+        #user-image {
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+          }
+        }
+
+        #user-text {
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: flex-start;
+          gap: 0.3em;
+          line-height: 1;
+          color: #452a6f;
+          position: relative;
+          z-index: 2;
+
+          #user-name {
+            font-size: 1em;
+          }
+
+          #user-type {
+            font-size: 0.7em;
+          }
+        }
+      }
+    }
+
+    &.premium {
+      .header-button button {
+        background-color: #fdd835;
+
+        #user-text {
+          color: #212121;
+        }
+      }
+    }
+
+    #user-dropdown {
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background-color: #9161e0;
+      width: 120%;
+      -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.7);
+      -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.7);
+      box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.7);
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        min-width: 100%;
+
+        li {
+          min-width: 100%;
+
+          > a,
+          > button {
+            display: flex;
+            padding: 1.2em 2.5em;
+            border-radius: 0px;
+            min-width: 100%;
+            text-align: left;
+            font-size: 1em;
+            border: 1px solid rgba(0, 0, 0, 0);
+            color: #ffffff;
+            opacity: 1;
+            font-weight: 400;
+            line-height: 1;
+
+            &:hover,
+            &:active,
+            &:focus,
+            &:focus-visible {
+              border: 1px solid rgba(0, 0, 0, 0);
+              background: #7045b7;
+              outline: none;
+              opacity: 1;
+              color: #ffffff;
+            }
+          }
+        }
+      }
     }
   }
 
-  &.authenticated {
-    // Premium gold shine
+  // Open menu and add premium gold shine effect
+  // ============================================================================
+  #user-button {
+    // Closed state
     // ========================================
-    &.premium {
-      #header-button button {
-        position: relative;
+    #user-dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
 
-        &:before {
-          content: "";
-          width: 25px;
-          height: 200%;
-          position: absolute;
-          top: 0;
-          right: 0;
-          background: rgba(255, 255, 255, 0.35);
-          filter: blur(6px);
-          translate: (40px);
-          pointer-events: none;
-          transition: all 0.1s ease-in;
-          rotate: (-50deg);
-          opacity: 0;
-        }
-
-        &:after {
-          content: "";
-          width: 15px;
-          height: 200%;
-          position: absolute;
-          top: 0;
-          right: 0;
-          background: rgba(255, 255, 255, 0.35);
-          filter: blur(6px);
-          translate: (40px);
-          pointer-events: none;
-          transition: all 0.1s ease-in;
-          rotate: (-50deg);
-          opacity: 0;
-        }
+      &:hover {
+        max-height: 999px;
       }
     }
 
-    // Open state
-    // ========================================
-    &:hover,
-    &:active,
-    &:focus,
-    &.open {
-      // Open dropdown
+    // Stop menu showing when logging out
+    &:not(.authenticated) {
       #user-dropdown {
-        max-height: 999px !important;
-        transition: max-height 0.3s ease-in !important;
+        transition: none !important;
+        max-height: 0 !important;
       }
+    }
 
+    &.authenticated {
       // Premium gold shine
+      // ========================================
       &.premium {
-        #header-button button {
+        .header-button button {
+          position: relative;
+
           &:before {
-            rotate: (-20deg) !important;
-            translate: (-100px -40px) !important;
-            transform: (skewX(20deg)) !important;
-            opacity: 1 !important;
+            content: "";
+            width: 25px;
+            height: 200%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.35);
+            filter: blur(6px);
+            translate: (40px);
+            pointer-events: none;
+            transition: all 0.1s ease-in;
+            rotate: (-50deg);
+            opacity: 0;
           }
 
           &:after {
-            rotate: (-20deg);
-            translate: (-40px -30px) !important;
-            transform: (skewX(20deg)) !important;
-            opacity: 1 !important;
+            content: "";
+            width: 15px;
+            height: 200%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.35);
+            filter: blur(6px);
+            translate: (40px);
+            pointer-events: none;
+            transition: all 0.1s ease-in;
+            rotate: (-50deg);
+            opacity: 0;
+          }
+        }
+      }
+
+      // Open state
+      // ========================================
+      &:hover,
+      &:active,
+      &:focus,
+      &.open {
+        // Open dropdown
+        #user-dropdown {
+          max-height: 999px !important;
+          transition: max-height 0.3s ease-in !important;
+        }
+
+        // Premium gold shine
+        &.premium {
+          .header-button button {
+            &:before {
+              rotate: (-20deg) !important;
+              translate: (-100px -40px) !important;
+              transform: (skewX(20deg)) !important;
+              opacity: 1 !important;
+            }
+
+            &:after {
+              rotate: (-20deg);
+              translate: (-40px -30px) !important;
+              transform: (skewX(20deg)) !important;
+              opacity: 1 !important;
+            }
           }
         }
       }

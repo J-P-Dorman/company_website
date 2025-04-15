@@ -7,6 +7,7 @@ type Props = {
   className?: string;
   onFocus?: React.FocusEventHandler<HTMLButtonElement> | undefined;
   onBlur?: React.FocusEventHandler<HTMLButtonElement> | undefined;
+  id?: string;
 };
 
 const Button = ({
@@ -16,9 +17,11 @@ const Button = ({
   type = 'button',
   onFocus,
   onBlur,
+  id
 }: PropsWithChildren<Props>) => {
   return (
     <button
+      id={id}
       className={className ?? "btn-primary"}
       onClick={onClick}
       type={type}

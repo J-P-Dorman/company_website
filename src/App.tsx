@@ -8,6 +8,7 @@ import { RootState } from "./redux/store";
 import { decodeString } from "./utils";
 import Fab from "./components/Fab/Fab";
 import Game from "./pages/Game/Game";
+import News from "./pages/News/News";
 
 const App = () => {
   // Store data
@@ -29,6 +30,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/news" element={<News />} />
           <Route path="/game" element={<Game />} />
           {isAuthenticated && (
             <>

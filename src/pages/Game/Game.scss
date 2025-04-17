@@ -37,6 +37,7 @@
       align-items: center;
       justify-content: center;
       flex-flow: column nowrap;
+      padding: 1rem;
 
       &:before {
         content: "";
@@ -49,6 +50,7 @@
       > div {
         position: relative;
         z-index: 1;
+        text-align: center;
       }
     }
   }
